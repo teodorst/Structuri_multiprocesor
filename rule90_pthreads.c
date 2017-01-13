@@ -147,8 +147,6 @@ int main(int argc, char *argv[])
   int iter_number = 1000;
   int size = 1000000;
 
-  // int iter_number = 10;
-  // int size = 1000;
 
   int iter;
   int i;
@@ -168,7 +166,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-  for(t=0;t<NUM_THREADS;t++){
+  for(t = 0; t < NUM_THREADS; t ++){
    
    arg_struct = (thread_struct*) malloc(sizeof(thread_struct));
    arg_struct->thread_number = t;
@@ -181,19 +179,19 @@ int main(int argc, char *argv[])
    if (rc){
      printf("ERROR; return code from pthread_create() is %d\n", rc);
      exit(-1);
-     }
    }
+  }
 
-    for(t = 0; t < NUM_THREADS; t++){
-        pthread_join(threads[t], NULL);
-    }
+  for(t = 0; t < NUM_THREADS; t++){
+      pthread_join(threads[t], NULL);
+  }
 
-    // print_game(game_table, iter_number, size);
+  // print_game(game_table, iter_number, size);
 
-    for (i = 0; i < iter_number; i ++) {
-      free(game_table[i]);
-    }
+  for (i = 0; i < iter_number; i ++) {
+    free(game_table[i]);
+  }
 
-   /* Last thing that main() should do */
-   pthread_exit(NULL);
+  /* Last thing that main() should do */
+  return 0;
 }

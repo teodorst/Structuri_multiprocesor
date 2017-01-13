@@ -43,9 +43,7 @@ int main(int argc, char** argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
 	int iter_number = 1000;
-	int size = 1000000;
-	// int iter_number = 10;
-	// int size = 1000;
+  	int size = 1000000;
 
 	int iter;
 	int i;

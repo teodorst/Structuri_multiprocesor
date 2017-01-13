@@ -32,9 +32,6 @@ int main() {
   int iter_number = 1000;
   int size = 1000000;
 
-  // int iter_number = 10;
-  // int size = 1000;
-
   int iter;
   int i;
   int chunk = size/2;
