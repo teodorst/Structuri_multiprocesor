@@ -1,26 +1,4 @@
 #include <omp.h>
-
-
-
-// #pragma omp parallel private(nthreads, tid)
-//   {
-
-//   /* Obtain thread number */
-//   tid = omp_get_thread_num();
-//   printf("Hello World from thread = %d\n", tid);
-
-//    Only master thread does this 
-//   if (tid == 0) 
-//     {
-//     nthreads = omp_get_num_threads();
-//     printf("Number of threads = %d\n", nthreads);
-//     }
-
-//   }  /* All threads join master thread and disband */
-
-// }
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -51,11 +29,11 @@ void print_game(char **game_table, int iter_number,  int size) {
 }
 
 int main() {
-  // int iter_number = 1000;
-  // int size = 1000000;
+  int iter_number = 1000;
+  int size = 1000000;
 
-  int iter_number = 10;
-  int size = 1000;
+  // int iter_number = 10;
+  // int size = 1000;
 
   int iter;
   int i;
@@ -67,7 +45,6 @@ int main() {
   for (iter = 1; iter < iter_number; iter ++) {
     #pragma omp for private(i) schedule(static, chunk)
     for (i = 0; i < size; i ++ ) {
-      printf("iter %d - i %d \n", iter, i);
       if (i == 0) {
         game_table[iter][i] = game_table[iter - 1][1] ^ game_table[iter - 1][size-1];
       } else if (i == size - 1) {

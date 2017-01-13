@@ -28,11 +28,11 @@ void print_game(char **game_table, int iter_number,  int size) {
 }
 
 int main() {
-	// int iter_number = 1000;
-	// int size = 1000000;
+	int iter_number = 1000;
+	int size = 1000000;
 
-	int iter_number = 10;
-	int size = 1000;
+	// int iter_number = 10;
+	// int size = 1000;
 
 	int iter;
 	int i;
@@ -52,7 +52,7 @@ int main() {
 		}
 	}
 
-	print_game(game_table, iter_number, size);
+	// print_game(game_table, iter_number, size);
 
 	for (i = 0; i < iter_number; i ++) {
 		free(game_table[i]);

@@ -1,7 +1,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define NUM_THREADS	5
+#define NUM_THREADS	4
 
 // barriers
 
@@ -144,8 +144,11 @@ void *PrintHello(void *thread_arg)
 int main(int argc, char *argv[])
 {
 
-  int iter_number = 10;
-  int size = 1000;
+  int iter_number = 1000;
+  int size = 1000000;
+
+  // int iter_number = 10;
+  // int size = 1000;
 
   int iter;
   int i;
@@ -185,7 +188,7 @@ int main(int argc, char *argv[])
         pthread_join(threads[t], NULL);
     }
 
-    print_game(game_table, iter_number, size);
+    // print_game(game_table, iter_number, size);
 
     for (i = 0; i < iter_number; i ++) {
       free(game_table[i]);
