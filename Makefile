@@ -14,10 +14,10 @@ rule90_mpi: rule90_mpi.o
 	$(MPICC) $(CFLAGS) -o $@ $^
 
 rule90_omp: rule90_omp.o
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ -fopenmp $^
 
 role90_hibrid: role90_hibrid.o
-	$(MPICC) $(CFLAGS) -o $@ $^
+	$(MPICC) $(CFLAGS) -o $@ -fopenmp $^
 
 
 
@@ -31,10 +31,10 @@ rule90_mpi.o: rule90_mpi.c
 	$(MPICC) $(CFLAGS) -c -o $@ $^
 
 rule90_omp.o: rule90_omp.c
-	$(CC) $(CFLAGS) -fopenmp -c -o $@ $^
+	$(CC) $(CFLAGS) -c -o $@ -fopenmp $^
 
 role90_hibrid.o: role90_hibrid.c
-	$(MPICC) $(CFLAGS) -c -o $@ $^
+	$(MPICC) $(CFLAGS) -c -o $@ -fopenmp $^
 
 clean:
 	rm rule90_serial rule90_pthreads rule90_mpi rule90_omp role90_hibrid *.o
