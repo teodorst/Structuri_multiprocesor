@@ -31,7 +31,7 @@ rule90_mpi.o: rule90_mpi.c
 	$(MPICC) $(CFLAGS) -c -o $@ $^
 
 rule90_omp.o: rule90_omp.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	$(CC) $(CFLAGS) -fopenmp -c -o $@ $^
 
 role90_hibrid.o: role90_hibrid.c
 	$(MPICC) $(CFLAGS) -c -o $@ $^
