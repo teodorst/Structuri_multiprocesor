@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUM_THREADS=4
+#define NUM_THREADS 4
 
 char** configuration(int game_size, int iter_number) {
   int i;
