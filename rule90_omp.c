@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define NUM_THREADS=4
+
 char** configuration(int game_size, int iter_number) {
   int i;
 
@@ -37,6 +39,9 @@ int main(int argc, char** argv) {
   int chunk = size/2;
 
   char **game_table = configuration(size, iter_number);
+
+  omp_set_dynamic(0);     // Explicitly disable dynamic teams
+  omp_set_num_threads(NUM_THREADS);
 
   #pragma omp parallel private(iter) 
   for (iter = 1; iter < iter_number; iter ++) {
